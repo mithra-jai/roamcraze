@@ -18,10 +18,10 @@ export default function ContentTypePage({ mainimage,description,title,imagegalle
       width={400}
       height={200}
      />
-      <h1>{title}</h1>
-      <p>Description for {title} in {country}: {description}</p>
+      <h1 className='text-2xl p-4'>{title}</h1>
+      <p className='text-base p-6'>Description for {title} in {country}: {description}</p>
       {imagegallery.map((image)=>(
-        <Image src={"https:" + image.fields.file.url}  width={400}
+        <Image className='p-5' src={"https:" + image.fields.file.url}  width={400}
         height={200}/>
       ))}
       {/* <Image src= {"https:" + imagegallery.map((image) => image.fields.file.url)}
