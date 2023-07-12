@@ -32,41 +32,49 @@ export default function ContentTypePage({ mainimage,description,title,imagegalle
 }
 
 export async function getServerSideProps({ params }) {
-  const { country, contentTypes } = params;
+  const { country, contentType } = params;
 
   try {
     // Fetch the entry from Contentful based on country and content type
     const { items } = await client.getEntries({
       content_type: country,
-      'fields.title': contentTypes,
+      'fields.slug': contentType,
       limit: 6,
     });
 
     if (items.length > 0) {
-      // Get the description from the retrieved entry
-      const title = items[0].fields.title
-      const description = items[0].fields.description;
-      const mainimage = items[0].fields.mainimage
-      const imagegallery = items[0].fields.imagegallery 
-      console.log(imagegallery)
-      // Return the description as a prop
-      return {
-        props: {
+      // Find the matching entry for the specific contentType
+      const entry = items.find((item) => item.fields.slug === contentType);
+
+      if (entry) {
+        // Get the description from the retrieved entry
+        const title = entry.fields.title;
+        const description = entry.fields.description;
+        const mainimage = entry.fields.mainimage;
+        const imagegallery = entry.fields.imagegallery;
+
+        // Return the data as props
+        return {
+          props: {
             title,
-          description,
-          mainimage,
-          imagegallery,
-        },
-      };
+            description,
+            mainimage,
+            imagegallery,
+          },
+        };
+      }
     }
   } catch (error) {
-    console.error('Error fetching description:', error);
+    console.error('Error fetching data:', error);
   }
 
-  // If the description is not found or an error occurs, return a default value
+  // If the data is not found or an error occurs, return a default value
   return {
     props: {
+      title: 'Data not found',
       description: 'Description not found',
+      mainimage: null,
+      imagegallery: [],
     },
   };
 }
