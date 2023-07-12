@@ -12,7 +12,7 @@ export default function ContentTypePage({ mainimage,description,title,imagegalle
   const { country} = router.query;
 
   return (
-    <div>
+    <div> 
       <Image 
       src = {'https:'+ mainimage.fields.file.url}
       width={400}
