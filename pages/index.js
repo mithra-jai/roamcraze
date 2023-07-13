@@ -1,4 +1,5 @@
-import Countries from '@/components/Countries';
+
+import HomeVideoBg from '@/components/HomeVideoBg';
 
 
 
@@ -6,8 +7,10 @@ import Countries from '@/components/Countries';
 export default function Home() {
   return (
     <div>
-      <h1>Home Page</h1>
-      <Countries/>
+       <HomeVideoBg/>
+     
+      
+      
     </div>
   );
 }

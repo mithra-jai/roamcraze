@@ -21,7 +21,7 @@
            <div>
              <div className="flex items-center justify-between py-3 md:py-5 md:block">
                <a href="#">
-                 <h2 className="text-2xl text-white font-bold">ROAM CRAZE</h2>
+                 <h2 className="nav-title">ROAM CRAZE</h2>
                </a>
                <div className="md:hidden">
                  <button
@@ -68,11 +68,14 @@
                }`}
              >
                <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                 <li className="text-white">
+                 <li className="text-black">
                    <Link href="/">Home</Link>
                  </li>
-                 <li className="text-white">
-                   <Link href="/">About us</Link>
+                 <li className="text-black">
+                   <Link href="/About">About us</Link>
+                 </li>
+                 <li className="text-black">
+                 <Link href="/Destination">Destinations</Link>
                  </li>
                  {/* <li className="text-white">
                    <div class="relative inline-block text-left">
@@ -151,8 +154,8 @@
                      </div>
                    </div>
                  </li> */}
-                 <li className="text-white">
-                   <Link href="/">Contact</Link>
+                 <li className="text-black">
+                   <Link href="/Contact">Contact</Link>
                  </li>
                </ul>
              </div>

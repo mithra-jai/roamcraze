@@ -57,7 +57,7 @@ export default function CountryPage({ country, contentTypes }) {
     <div>
       
       {contentTypes.map(({ thumbnail, title, slug }) => (
-        <div className="container mx-auto">
+        <div className="dest-list">
           
           <div key={slug} class="max-w-sm rounded overflow-hidden shadow-lg">
             <div class="px-6 pt-4 pb-2">
