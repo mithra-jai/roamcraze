@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import { createClient } from 'contentful';
+import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
 import Link from 'next/link';
-import Footer from '@/components/Footer';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 
 export default function ContentTypePage({
@@ -19,51 +19,65 @@ export default function ContentTypePage({
   country,
 }) {
   const router = useRouter();
-
+  const {data:session}= useSession();
+  if(session){
   return (
-    <div className='container mx-auto'>
-      <div className='flex justify-between mt-4'>
+    
+    <div className="container">
+      <div className="navigation">
         {prevSlug && (
           <Link legacyBehavior href={`/${country}/${prevSlug}`}>
-            <a className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-              Previous
-            </a>
+            <a className="navigation-button">Previous</a>
           </Link>
         )}
         {nextSlug && (
           <Link legacyBehavior href={`/${country}/${nextSlug}`}>
-            <a className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-              Next
-            </a>
+            <a className="navigation-button">Next</a>
           </Link>
         )}
       </div>
-      <Image src={'https:' + mainimage.fields.file.url} width={400} height={200} />
-      <h1 className='text-2xl p-4'>{title}</h1>
-      <p className='text-base p-6'>
+      <div className="main-image" >
+        <Image  src={'https:' + mainimage.fields.file.url} width={400} height={200} />
+      </div>
+      <h1 className="title">{title}</h1>
+      <p className="description">
         Description for {title} in {country}: {description}
       </p>
-      {imagegallery.map((image) => (
-        <Image
-          className='p-5'
-          src={'https:' + image.fields.file.url}
-          width={400}
-          height={200}
-        />
-      ))}
+      <div className="image-gallery">
+        {imagegallery.map((image) => (
+          <div key={image.sys.id} className="image-item">
+            <Image src={'https:' + image.fields.file.url} width={400} height={400} />
+          </div>
+        ))}
+      </div>
       {country && (
-        <div className='flex justify-center mt-4'>
+        <div className="back-link">
           <Link legacyBehavior href={`/Destination`}>
-            <a className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-              Back To Destination
-            </a>
+            <a className="navigation-button">Back To Destination</a>
           </Link>
         </div>
       )}
-      <Footer />
+      
     </div>
   );
-}
+      }
+      else{
+        return (
+          <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="max-w-md w-full p-6 bg-white rounded-lg shadow">
+              <h2 className="text-2xl font-semibold mb-4"><button onClick={()=> signIn()}>Sign in</button></h2>
+              <p className="text-gray-700 mb-4">
+                Please sign in to access the content.
+              </p>
+              <p className="text-gray-700">
+                Sign in using your credentials to unlock the full experience.
+              </p>
+            </div>
+          </div>
+        );
+      }
+      }
+
 
 export async function getServerSideProps({ params }) {
   const { country, contentType } = params;

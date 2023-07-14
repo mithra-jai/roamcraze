@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { countries } from "./countriesOne";
+import { useSession,signIn,signOut } from 'next-auth/react';
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -33,6 +34,8 @@ export default function Navbar() {
   const toggleNavbar = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  const {data:session}= useSession();
 
   return (
     <div>
@@ -144,6 +147,18 @@ export default function Navbar() {
                 <li className="text-white">
                   <Link href="/Contact">Contact Us</Link>
                 </li>
+                <li className="text-white">
+         {session?.user ?(
+          <>
+              <p>{session.user.name}</p>
+              <button onClick={()=> signOut()}>Sign out</button>
+              </>
+          ):
+          (
+            <button onClick={()=> signIn()}>Sign in</button>
+  )
+          }      
+        </li>
               </ul>
             </div>
           </div>
@@ -152,3 +167,4 @@ export default function Navbar() {
     </div>
   );
 }
+   

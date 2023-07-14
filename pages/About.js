@@ -1,6 +1,6 @@
 import { createClient } from "contentful"
 import AboutPage from "@/components/AboutPage"
-import Footer from "@/components/Footer"
+
 // import AboutImageSlider from "@/components/AboutImageSlider"
 
 export async function getStaticProps() {
@@ -8,7 +8,7 @@ export async function getStaticProps() {
     // The createClient function makes a connection to the ContentfulCMS
     const client = createClient({
       space: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      accessToken: process.env.CONTENTFUL_ACCESS_KEY,
     })
   
     const res = await client.getEntries({ content_type: "about" })
@@ -35,7 +35,7 @@ export async function getStaticProps() {
             grid-gap: 20px 60px;
           }
         `}</style>
-        <Footer/>
+       
       </div>
     )
   }
