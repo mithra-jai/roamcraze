@@ -1,5 +1,6 @@
 import HomeVideoBg from '@/components/HomeVideoBg';
 import AboutImageSlider from '@/components/AboutImageSlider';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
      
       <AboutImageSlider/>
       
+       <Footer/>
     </div>
   );
 }
