@@ -1,17 +1,21 @@
 import Footer from "@/components/Footer"
 export default function Contact(){
   return(
-      <>
-      <h1>Contact Page</h1>
-      <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <form class="space-y-6" action="https://formsubmit.co/roamcraze@gmail.com" method="POST">
-      <h5 class="text-xl font-medium text-gray-900 dark:text-white">
-        Contact Form
-      </h5>
+      <div className="flex flex-row gap-x-10 justify-center items-center m-8">
+        <div className=" gap-x-3">
+          <h1 className="text-lg text-center tex mb-5 ">GET IN TOUCH</h1>
+          <h1 className=" text-3xl text-center mb-5">Contact Form</h1>
+          <p className="text-center mb-5">Send us your questions, comments, or suggestions!</p>
+<p className="text-center mb-5">If you'd like to work with us or you have a question or comment, you can contact us using the form below.</p>
+<p className="text-center mb-5">Sometimes We're busy traveling, but We try to respond to any messages!</p>
+        </div>
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <form className="space-y-6" action="https://formsubmit.co/roamcraze@gmail.com" method="POST">
+      
       <div>
         <label
           for="name"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Your name
         </label>
@@ -19,7 +23,7 @@ export default function Contact(){
           type="text"
           name="name"
           id="name"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
           placeholder="Your Name"
           required
         />
@@ -27,7 +31,7 @@ export default function Contact(){
       <div>
         <label
           for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Your email
         </label>
@@ -35,7 +39,7 @@ export default function Contact(){
           type="email"
           name="email"
           id="email"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
           placeholder="Em@il id"
           required
         />
@@ -63,7 +67,7 @@ export default function Contact(){
         >
           Message
         </label>
-        <input
+        <textarea
           type="textarea"
           name="message"
           id="message"
@@ -81,7 +85,6 @@ export default function Contact(){
       </button>
     </form>
   </div>
-  <Footer/>
-      </>
+</div>
   )
 }

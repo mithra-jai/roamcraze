@@ -1,15 +1,16 @@
 import HomeVideoBg from '@/components/HomeVideoBg';
 import AboutImageSlider from '@/components/AboutImageSlider';
-import Footer from '@/components/Footer';
+
+import Countries from '@/components/Countries';
+import GoToContact from '@/components/goToContact';
 
 export default function Home() {
   return (
     <div>
        <HomeVideoBg/>
      
-      <AboutImageSlider/>
-      
-       <Footer/>
+      <Countries/>
+      <GoToContact/>
     </div>
   );
 }

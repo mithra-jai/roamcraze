@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Footer from './Footer'
 
 export default function Layout({ children }) {
   return (
@@ -13,7 +14,7 @@ export default function Layout({ children }) {
         { children }
       </div>
 
-      
+      <Footer/>
     </div>
   )
 }
