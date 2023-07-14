@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -219,6 +223,7 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .main-image img {
@@ -227,16 +232,34 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  border: 4px solid #fff;
+  border: 5px solid #a5fdf1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.main-image.zoomed img {
+  transform: scale(1.2);
+  cursor: zoom-out;
+}
+.zoom-in {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
 }
 
+.zoom-out {
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  cursor: zoom-out;
+}
+
+
 .title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
+  color: #4eb193; /* Replace with your desired color */
 }
 
 .description {
@@ -245,9 +268,14 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   margin-bottom: 20px;
 }
 
+.grid-container {
+  display: flex;
+  justify-content: center;
+}
+
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 220px);
   grid-gap: 20px;
 }
 
@@ -255,9 +283,10 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   cursor: pointer;
+  aspect-ratio: 1;
 }
 
 .image-item:hover {
@@ -270,6 +299,29 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.image-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 2px solid #ffffff; /* Customize the border color */
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-item:hover:before {
+  opacity: 1;
+}
+
+.image-item:hover img {
+  filter: brightness(80%); /* Adjust the brightness value as desired */
 }
 
 .back-link {
@@ -304,6 +356,128 @@ border: 1px solid rgba(8, 77, 82, 0.78);
     display: flex;
     flex-wrap: nowrap;
 } */
-.country-slide-img{
+/* .country-slide-img{
     width: 500px;
+} */
+/* styles/global.css */
+
+./* styles/global.css */
+
+/* styles/global.css */
+.navbar {
+  padding: 20px 0; 
+}
+.footer{
+  margin-top: 20px;
+}
+.sliderContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: inline-block; /* Change display to inline-block */
+  text-align: center; /* Add text-align to center the slider */
+  margin:40px 250px 40px 250px;
+  cursor: pointer;
+}
+.slideItem {
+  position: relative;
+ 
+}
+
+@media (max-width: 800px) {
+  .sliderContainer {
+    width: 100%;
+    padding: 0 20px;
+    
+  }
+}
+
+.slideTitle {
+  position: absolute;
+  top: 10px; /* Adjust the distance from the bottom as needed */
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2; /* Add this line */
+  
+}
+
+
+
+.slideDescription {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+
+.slideItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  display: inline-block; /* Add display inline-block to make it inline */
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.slideItem:hover {
+  transform: scale(1.05);
+}
+.slideItem:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust the overlay color and opacity as needed */
+  z-index: 1;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin-bottom:10px;
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+  z-index: 2;
+}
+
+.carouselArrow:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.carouselArrowPrev {
+  left: 20px;
+}
+
+.carouselArrowNext {
+  right: 20px;
+}
+
+.carousel .carousel-status {
+  display: none !important;
 }

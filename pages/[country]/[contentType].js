@@ -3,6 +3,7 @@ import { createClient } from 'contentful';
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -18,8 +19,12 @@ export default function ContentTypePage({
   nextSlug,
   country,
 }) {
+  const [zoomed, setZoomed] = useState(false);
   const router = useRouter();
   const {data:session}= useSession();
+  const handleZoom = () => {
+    setZoomed(!zoomed);
+  };
   if(session){
   return (
     
@@ -36,19 +41,21 @@ export default function ContentTypePage({
           </Link>
         )}
       </div>
-      <div className="main-image" >
+      <div className={`main-image ${zoomed ? 'zoomed' : ''}`} onClick={handleZoom} >
         <Image  src={'https:' + mainimage.fields.file.url} width={400} height={200} />
       </div>
       <h1 className="title">{title}</h1>
       <p className="description">
         Description for {title} in {country}: {description}
       </p>
+      <div class="grid-container">
       <div className="image-gallery">
         {imagegallery.map((image) => (
           <div key={image.sys.id} className="image-item">
             <Image src={'https:' + image.fields.file.url} width={400} height={400} />
           </div>
         ))}
+      </div>
       </div>
       {country && (
         <div className="back-link">

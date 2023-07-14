@@ -1,5 +1,7 @@
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
+// import 'swiper/swiper-bundle.min.css';
+
 import {SessionProvider} from 'next-auth/react'
 
 

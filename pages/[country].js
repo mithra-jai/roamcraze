@@ -1,6 +1,12 @@
 import { createClient } from "contentful";
 import Link from "next/link";
-import { Fade } from 'react-slideshow-image';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+
+// import { Fade } from 'react-slideshow-image';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -55,31 +61,31 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function CountryPage({country, contentTypes}){
-  return(
-    <>
-     <div className="slide-container">
-      <Fade className="about-slideshow">
-      {contentTypes.map(({ thumbnail, title, slug }) => (
-         <div className="dest-list">
-           <div key={slug}>
-             <div class="px-6 pt-4 pb-2">
-               <Link href={`/${country}/${slug}`}>
-                 <img class="w-full" src={thumbnail} alt={title} />
-                 <div  class="px-6 py-4">
-                   <div class="font-bold text-xl mb-2">{title}</div>
-                 </div>
-               </Link>
-             </div>
-           </div>
-         </div>
-       ))}
-      </Fade>
-    </div>
+// export default function CountryPage({country, contentTypes}){
+//   return(
+//     <>
+//      <div className="slide-container">
+//       <Fade className="about-slideshow">
+//       {contentTypes.map(({ thumbnail, title, slug }) => (
+//          <div className="dest-list">
+//            <div key={slug}>
+//              <div class="px-6 pt-4 pb-2">
+//                <Link href={`/${country}/${slug}`}>
+//                  <img class="w-full" src={thumbnail} alt={title} />
+//                  <div  class="px-6 py-4">
+//                    <div class="font-bold text-xl mb-2">{title}</div>
+//                  </div>
+//                </Link>
+//              </div>
+//            </div>
+//          </div>
+//        ))}
+//       </Fade>
+//     </div>
     
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
 // export default function CountryPage({ country, contentTypes }) {
 //   return (
@@ -103,3 +109,46 @@ export default function CountryPage({country, contentTypes}){
 //     </div>
 //   );
 // }
+
+export default function CountryPage({ country, contentTypes }) {
+  const CustomArrowPrev = ({ onClick }) => (
+    <button className="carouselArrow carouselArrowPrev" onClick={onClick}>
+      <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: "24px" }} />
+    </button>
+  );
+
+  const CustomArrowNext = ({ onClick }) => (
+    <button className="carouselArrow carouselArrowNext" onClick={onClick}>
+      <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "24px" }} />
+    </button>
+  );
+
+  return (
+    <div className="sliderContainer">
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        dynamicHeight={true}
+        autoPlay={true}
+        interval={3000}
+        renderArrowPrev={(onClickHandler, hasPrev) =>
+          hasPrev && <CustomArrowPrev onClick={onClickHandler} />
+        }
+        renderArrowNext={(onClickHandler, hasNext) =>
+          hasNext && <CustomArrowNext onClick={onClickHandler} />
+        }
+      >
+        {contentTypes.map(({ thumbnail, title, slug }) => (
+          <Link legacyBehavior key={slug} href={`/${country}/${slug}`}>
+            <a>
+              <div className="slideItem">
+                <img src={thumbnail} alt={title} className="slideImage" />
+                <div className="slideTitle">{title}</div> {/* Title */}
+              </div>
+            </a>
+          </Link>
+        ))}
+      </Carousel>
+    </div>
+  );
+}
