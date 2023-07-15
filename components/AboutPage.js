@@ -5,9 +5,9 @@ export default function AboutPage({ detail }) {
 
   return (
     <>
-    <div class="image-container">
+    <div className="image-container">
       <img src="abt2.jpg" alt="Image" />
-      <div class="overlay-text">
+      <div className="overlay-text">
         <span className="abt-span">
           ABOUT
           <br />

@@ -4,8 +4,8 @@ import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 py-6 footer">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-800 py-6 ">
+      <div className=" mx-auto px-4">
         <div className="flex justify-center items-center mb-4">
           <a
             href="https://www.facebook.com"
