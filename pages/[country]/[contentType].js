@@ -4,6 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import Head from "next/head";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -14,6 +15,7 @@ export default function ContentTypePage({
   mainimage,
   description,
   title,
+  slug,
   imagegallery,
   prevSlug,
   nextSlug,
@@ -29,6 +31,11 @@ export default function ContentTypePage({
   return (
     
     <div className="container">
+      <Head>
+        <title>{title} - RoamCraze</title>
+        <meta name ="description" content={`Explore beautiful destinations in ${country}.`}
+        ></meta>
+      </Head>
       <div className="navigation">
         {prevSlug && (
           <Link legacyBehavior href={`/${country}/${prevSlug}`}>
@@ -41,10 +48,11 @@ export default function ContentTypePage({
           </Link>
         )}
       </div>
-      <div className={`main-image ${zoomed ? 'zoomed' : ''}`} onClick={handleZoom} >
-        <Image  src={'https:' + mainimage.fields.file.url} width={400} height={200} />
-      </div>
       <h1 className="title">{title}</h1>
+      <div className={`main-image ${zoomed ? 'zoomed' : ''}`} onClick={handleZoom} >
+        <Image  src={'https:' + mainimage.fields.file.url} width={400} height={200} alt={slug}/>
+      </div>
+     
       <p className="description">
         Description for {title} in {country}: {description}
       </p>
@@ -52,7 +60,7 @@ export default function ContentTypePage({
       <div className="image-gallery">
         {imagegallery.map((image) => (
           <div key={image.sys.id} className="image-item">
-            <Image src={'https:' + image.fields.file.url} width={400} height={400} />
+            <Image src={'https:' + image.fields.file.url} width={400} height={400} alt={slug}/>
           </div>
         ))}
       </div>

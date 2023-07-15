@@ -102,7 +102,66 @@ a {
   }
 }
 
+/* Home */
+.home-main{
+  padding-top: 75px;
+}
+/* Navbar */
+.nav-main{
+ position: fixed;
+ top:0;
+ z-index: 10;
+}
+
 /* --ABOUT-- */
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.abt-span{
+  font-size: 50px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+
+.overlay-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust the styles for smaller screens */
+  .image-container {
+    display: block;
+  }
+
+  .overlay-text {
+    font-size: 30px;
+  }
+  .abt-span{
+    font-size: 30px;
+    color: white;
+    letter-spacing: 3px;
+  }
+}
 .about-list{
   background-image: url("/abt-bg.jpg");
   padding-top: 40px;
@@ -193,10 +252,13 @@ border: 1px solid rgba(8, 77, 82, 0.78);
     font-size: 48px;
   }
 }
+
+/* Content type page css */
 .container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
+  padding-top: 80px;
 }
 
 .navigation {
@@ -222,8 +284,13 @@ border: 1px solid rgba(8, 77, 82, 0.78);
 .main-image {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 20px auto;
   margin-bottom: 20px;
   overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+  height: 450px;
 }
 
 .main-image img {
@@ -232,14 +299,16 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  border: 5px solid #a5fdf1;
+  border: 5px solid #cef8f2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
+
 .main-image.zoomed img {
   transform: scale(1.2);
   cursor: zoom-out;
 }
+
 .zoom-in {
   transform: scale(1.2);
   transition: transform 0.3s ease;
@@ -252,20 +321,21 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   cursor: zoom-out;
 }
 
-
 .title {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
-  color: #4eb193; /* Replace with your desired color */
+  color: #4eb193; 
 }
 
 .description {
   font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin: 60px;
+  text-align: justify;
+  letter-spacing: 2px;
 }
 
 .grid-container {
@@ -310,7 +380,7 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   height: 100%;
   border-radius: 8px;
   box-sizing: border-box;
-  border: 2px solid #ffffff; /* Customize the border color */
+  border: 2px solid #ffffff; 
   z-index: 2;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -321,7 +391,7 @@ border: 1px solid rgba(8, 77, 82, 0.78);
 }
 
 .image-item:hover img {
-  filter: brightness(80%); /* Adjust the brightness value as desired */
+  filter: brightness(80%); 
 }
 
 .back-link {
@@ -329,6 +399,34 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   justify-content: center;
   margin-top: 20px;
 }
+
+/* Media Queries for Responsiveness of content type page */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    padding-top: 100px;
+  }
+
+  .main-image {
+    height: 300px;
+  }
+
+  .description {
+    margin: 10px;
+  }
+
+  .image-gallery {
+    grid-template-columns: repeat(1, 220px);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image {
+    height: 200px;
+  }
+}
+
 
 
 /* --COUNTRIES-- */
@@ -364,55 +462,25 @@ border: 1px solid rgba(8, 77, 82, 0.78);
 ./* styles/global.css */
 
 /* styles/global.css */
+
+/* Slider page CSS */
 .navbar {
   padding: 20px 0; 
 }
 .footer{
   margin-top: 20px;
 }
+/* Slider Container */
 .sliderContainer {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  display: inline-block; /* Change display to inline-block */
-  text-align: center; /* Add text-align to center the slider */
-  margin:40px 250px 40px 250px;
+  text-align: center; 
   cursor: pointer;
-}
-.slideItem {
-  position: relative;
- 
+  padding-top: 120px;
 }
 
-@media (max-width: 800px) {
-  .sliderContainer {
-    width: 100%;
-    padding: 0 20px;
-    
-  }
-}
-
-.slideTitle {
-  position: absolute;
-  top: 10px; /* Adjust the distance from the bottom as needed */
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 2; /* Add this line */
-  
-}
-
-
-
-.slideDescription {
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-
-
+/* Slide Items */
 .slideItem {
   position: relative;
   overflow: hidden;
@@ -420,13 +488,15 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   width: 500px;
   height: 300px;
   margin: 0 auto;
-  display: inline-block; /* Add display inline-block to make it inline */
+  display: inline-block; 
   transition: transform 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .slideItem:hover {
   transform: scale(1.05);
 }
+
 .slideItem:hover::before {
   content: "";
   position: absolute;
@@ -434,18 +504,38 @@ border: 1px solid rgba(8, 77, 82, 0.78);
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Adjust the overlay color and opacity as needed */
+  background-color: rgba(0, 0, 0, 0.3); 
   z-index: 1;
 }
 
+/* Slide Image */
 .slideImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
+/* Slide Title */
+.slideTitle {
+  position: absolute;
+  top: 10px; 
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* Slide Description */
+.slideDescription {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Carousel Arrows */
 .carouselArrow {
   position: absolute;
   top: 50%;
@@ -480,4 +570,41 @@ border: 1px solid rgba(8, 77, 82, 0.78);
 
 .carousel .carousel-status {
   display: none !important;
+}
+
+/* Contact-form */
+.contact-main-div {
+  padding-top: 100px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 800px) {
+  .sliderContainer {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 80px;
+  }
+
+  .slideItem {
+    width: 100%;
+    height: auto;
+  }
+
+  .carouselArrowPrev {
+    left: 5px;
+  }
+
+  .carouselArrowNext {
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideTitle {
+    font-size: 16px;
+  }
+
+  .slideDescription {
+    font-size: 12px;
+  }
 }

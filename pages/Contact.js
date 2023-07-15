@@ -1,7 +1,12 @@
-import Footer from "@/components/Footer"
+
+import Head from "next/head";
 export default function Contact(){
   return(
-      <div className="flex flex-row gap-x-10 justify-center items-center m-8">
+      <div className="flex flex-col md:flex-row gap-x-10 justify-center items-center m-8 contact-main-div">
+        <Head>
+        <title>Contact Us | Roam Craze</title>
+        <meta name="description" content="Get in touch with us and contact for any queries" />
+      </Head>
         <div className=" gap-x-3">
           <h1 className="text-lg text-center tex mb-5 ">GET IN TOUCH</h1>
           <h1 className=" text-3xl text-center mb-5">Contact Form</h1>
@@ -9,8 +14,8 @@ export default function Contact(){
 <p className="text-center mb-5">If you'd like to work with us or you have a question or comment, you can contact us using the form below.</p>
 <p className="text-center mb-5">Sometimes We're busy traveling, but We try to respond to any messages!</p>
         </div>
-      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <form className="space-y-6" action="https://formsubmit.co/roamcraze@gmail.com" method="POST">
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 contact-form">
+    <form className="space-y-6 " action="https://formsubmit.co/roamcraze@gmail.com" method="POST">
       
       <div>
         <label

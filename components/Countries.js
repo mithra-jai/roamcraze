@@ -15,10 +15,10 @@ export default function Countries() {
     <div className="container mx-auto py-20 px-8">
      <h1 className="text-center mb-10 text-4xl ">Destinations</h1>
     <div className="grid lg:grid-cols-3 gap-6">
-      {countries.map(({ name, title, image }) => (
+      {countries.map(({ name, title, image,slug }) => (
         <div className="shadow-lg rounded-lg" key={name}>
           <Link href={`/${name}`}>
-            <Image className="rounded-t-lg" src={image} height={300} width={400} alt="thumb" />
+            <Image className="rounded-t-lg" src={image} height={300} width={400} alt={slug} />
           </Link>
           <div className="p-5">
             <h2 className="text-3xl font-bold mb-3">{title}</h2>

@@ -5,7 +5,17 @@ export default function AboutPage({ detail }) {
 
   return (
     <>
-      <h1 className="about-head">About Us</h1>
+    <div class="image-container">
+      <img src="abt2.jpg" alt="Image" />
+      <div class="overlay-text">
+        <span className="abt-span">
+          ABOUT
+          <br />
+          US
+        </span>
+      </div>
+    </div>
+     
       <div className="about-main-div">
         {/* div-1 */}
         <div className="about-outer">
