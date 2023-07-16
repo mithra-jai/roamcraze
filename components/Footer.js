@@ -25,7 +25,7 @@ const Footer = () => {
             <AiFillInstagram size={24} />
           </a>
           <a
-            href="example@gmail.com"
+            href="/Contact"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-400 mr-4 footer-icon"
