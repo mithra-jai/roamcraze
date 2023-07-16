@@ -6,8 +6,8 @@ export default function Countries() {
     { name: "greece", title: "Greece", image: "/greece.jpg" },
     { name: "spain", title: "Spain", image: "/spain.jpg" },
     { name: "turkey", title: "Turkey", image: "/turkey.jpg" },
-    { name: "netherlands", title: "Netherlands", image: "/netherland.jpg" },
-    { name: "egypt", title: "Egypt", image: "/uk.jpg" },
+    { name: "netherlands", title: "Netherlands", image: "/netherlands.jpg" },
+    { name: "egypt", title: "Egypt", image: "/egypt.jpg" },
     { name: "iceland", title: "Iceland", image: "/iceland.jpg" },
   ];
   return (
