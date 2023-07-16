@@ -3,6 +3,6 @@ export const countries = [
     { name: "spain", title: "Spain" },
     { name: "turkey", title: "Turkey" },
     { name: "netherlands", title: "Netherlands" },
-    { name: "unitedkingdom", title: "United Kingdom" },
+    { name: "egypt", title: "Egypt" },
     { name: "iceland", title: "Iceland" },
   ];

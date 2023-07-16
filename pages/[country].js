@@ -23,7 +23,7 @@ export async function getStaticPaths() {
     "spain",
     "turkey",
     "netherlands",
-    "unitedkingdom",
+    "egypt",
     "iceland",
   ];
 
@@ -132,35 +132,33 @@ export default function CountryPage({ country, contentTypes }) {
       </div>
       <div className="grid justify-items-center m-8">
         {countryDetails && (
-          <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+          <div className="flex flex-col items-center   rounded-lg shadow md:flex-row md:max-w-xl  ">
             <Image
-              className=""
+              className="object-cover w-full h-96 rounded-t-lg  md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
               src={countryDetails.flags.svg}
-              height={150}
-              width={300}
+              height={600}
+              width={600}
               alt={countryDetails.name.common}
             />
-            <div class="px-6 py-4">
-              <div class="font-bold text-3xl mb-2  ">
+            <div class="flex flex-col justify-between p-20 leading-normal">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">
                 {countryDetails.name.common}
-              </div>
-              <p class=" text-base font-bold">
-                Capital: {countryDetails.capital}
-              </p>
-              <p class=" text-base font-bold">
+              </h5>
+              <p class=" text-base ">Capital: {countryDetails.capital}</p>
+              <p class=" text-base ">
                 Continents : {countryDetails.continents}
               </p>
-              <p class=" text-base font-bold">
+              <p class=" text-base ">
                 Population : {countryDetails.population}
               </p>
-              <p class=" text-base font-bold">
+              <p class=" text-base ">
                 Languages :{" "}
                 {Object.values(countryDetails.languages)
                   .toString()
                   .split(",")
                   .join(", ")}
               </p>
-              <p class=" text-base font-bold">
+              <p class=" text-base ">
                 Currency :{" "}
                 {
                   countryDetails.currencies[
@@ -176,3 +174,5 @@ export default function CountryPage({ country, contentTypes }) {
     </>
   );
 }
+
+

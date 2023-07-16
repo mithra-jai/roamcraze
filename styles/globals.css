@@ -138,13 +138,13 @@ a {
 .home-main {
   padding-top: 75px;
 }
-.home-countries {
+/* .home-countries {
   background: rgba(0, 0, 0, 0.6);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(8.5px);
   -webkit-backdrop-filter: blur(8.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
+} */
 /* VIDEOOOOO */
 .video-container {
   position: relative;
