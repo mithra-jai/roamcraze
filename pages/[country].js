@@ -77,7 +77,8 @@ export default function CountryPage({ country, contentTypes }) {
   );
 
   return (
-    <div className="sliderContainer">
+    <div className="sliderContainer min-h-screen">
+
       <Head>
         <title>{country} Destinations - Roam Craze</title>
         <meta name ="description" content={`Explore more details about the captivating ${country} with its images.`}></meta>

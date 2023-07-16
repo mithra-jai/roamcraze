@@ -53,7 +53,7 @@ export default function Navbar() {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <Link href="/">
-                <h2 className="text-2xl text-white font-bold">RoamCraze</h2>
+                <h2 className="text-2xl text-white font-bold">ROAMCRAZE</h2>
               </Link>
               <div className="md:hidden">
                 <button
@@ -101,11 +101,11 @@ export default function Navbar() {
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li className="text-white">
-                  <Link href="/">Home</Link>
+                  <Link href="/">HOME</Link>
                 </li>
 
                 <li className="text-white">
-                  <Link href="/About">About us</Link>
+                  <Link href="/About">ABOUT US</Link>
                 </li>
                 {/* <li className="text-white">
                   <Link href="/Destination">Destinations</Link>
@@ -116,7 +116,7 @@ export default function Navbar() {
                     className="flex items-center text-white focus:outline-none"
                     onClick={toggleDropdown}
                   >
-                    Destinations
+                    DESTINATIONS
                     <svg
                       className="w-4 h-4 ml-1 text-gray-400"
                       viewBox="0 0 20 20"
@@ -154,7 +154,7 @@ export default function Navbar() {
                   )}
                 </li>
                 <li className="text-white">
-                  <Link href="/Contact">Contact Us</Link>
+                  <Link href="/Contact">CONTACT US</Link>
                 </li>
 
                 {/* Handle Login */}
@@ -207,7 +207,7 @@ export default function Navbar() {
                                 >
                               <button onClick={() => signOut()}>
                                 
-                                  Sign Out
+                                  SIGN OUT
                                 
                               </button>
                               </a>
@@ -217,7 +217,7 @@ export default function Navbar() {
                       </div>
                     </>
                   ) : (
-                    <button onClick={() => signIn()}>Sign In</button>
+                    <button onClick={() => signIn()}>SIGN IN</button>
                   )}
                 </li>
               </ul>

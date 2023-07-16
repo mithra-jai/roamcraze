@@ -12,11 +12,11 @@ export default function Countries() {
     { name: "iceland", title: "Iceland", image: "/iceland.jpg" },
   ];
   return (
-    <div className="container mx-auto py-20 px-8">
+    <div className="container mx-auto py-20 px-8 country-main-div">
      <h1 className="text-center mb-10 text-4xl ">Destinations</h1>
     <div className="grid lg:grid-cols-3 gap-6">
       {countries.map(({ name, title, image,slug }) => (
-        <div className="shadow-lg rounded-lg" key={name}>
+        <div className="shadow-lg rounded-lg dest-cards" key={name}>
           <Link href={`/${name}`}>
             <Image className="rounded-t-lg" src={image} height={300} width={400} alt={slug} />
           </Link>

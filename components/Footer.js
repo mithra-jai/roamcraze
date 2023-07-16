@@ -4,14 +4,15 @@ import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 py-6 ">
-      <div className=" mx-auto px-4">
-        <div className="flex justify-center items-center mb-4">
-          <a
+    <footer className="footer">
+    <h1 className="footer-title">RoamCraze</h1>
+    <p className="footer-quote">“Live with no excuses and travel with no regrets” ~ Oscar Wilde.</p>
+    <div className="footer-icons">
+    <a
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400 mr-4"
+            className="text-white hover:text-gray-400 mr-4 footer-icon"
           >
             <AiFillFacebook size={24} />
           </a>
@@ -19,7 +20,7 @@ const Footer = () => {
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400 mr-4"
+            className="text-white hover:text-gray-400 mr-4 footer-icon"
           >
             <AiFillInstagram size={24} />
           </a>
@@ -27,7 +28,7 @@ const Footer = () => {
             href="example@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400 mr-4"
+            className="text-white hover:text-gray-400 mr-4 footer-icon"
           >
             <FiMail size={24} />
           </a>
@@ -35,17 +36,17 @@ const Footer = () => {
             href="https://www.twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400"
+            className="text-white hover:text-gray-400 mr-4 footer-icon"
           >
             <AiFillTwitterSquare size={24} />
           </a>
-        </div>
-        <hr className="border-gray-700 my-4" />
-        <h1 className="text-white text-center text-3xl mb-2 font-bold ">ROAM CRAZE</h1>
-        <p className="text-white text-center">© 2023 RoamCraze. All rights reserved.</p>
-        
-      </div>
-    </footer>
+    </div>
+    <hr className="footer-divider"/>
+    <p className="footer-copyright">
+      &copy; 2023 RoamCraze. All rights reserved.
+    </p>
+  </footer>
+  
   );
 };
 

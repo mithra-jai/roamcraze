@@ -2,7 +2,7 @@ import { createClient } from "contentful"
 import AboutPage from "@/components/AboutPage"
 import Head from "next/head";
 
-// import AboutImageSlider from "@/components/AboutImageSlider"
+
 
 export async function getStaticProps() {
 
@@ -29,7 +29,7 @@ export async function getStaticProps() {
         <title>About Us | RoamCraze</title>
         <meta name="description" content="Check out who we are and our missions" />
       </Head>
-        {/* <AboutImageSlider/> */}
+       
         {details.map(detail => (
           <AboutPage key={detail.sys.id} detail={detail} />
         ))}

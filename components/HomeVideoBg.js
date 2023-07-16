@@ -6,7 +6,7 @@ export default function HomeVideoBg(){
     return(
         <>
         <div className="video-container">
-  <video src="/video3.mp4" autoPlay loop muted ></video>
+  <video src="/home-video.mp4" autoPlay loop muted ></video>
   <div className="text-overlay">
     <h1 className='vid-span'>ROAMCRAZE <br/>
     <Link href="/About"><span className='vid-abt-btn'>ABOUT</span></Link>
