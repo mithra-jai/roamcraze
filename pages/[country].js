@@ -165,7 +165,7 @@ export default function CountryPage({ country, contentTypes }) {
                     Object.keys(countryDetails.currencies)
                   ].name
                 }{" "}
-                -{Object.keys(countryDetails.currencies)}
+                {Object.keys(countryDetails.currencies)}
               </p>
             </div>
           </div>

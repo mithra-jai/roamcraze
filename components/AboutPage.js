@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-export default function AboutPage({ detail }) {
-  const { whoWeAre, whatWeOffer, ourMission, slug } = detail.fields;
+export default function AboutPage({ abouts }) {
+  const { whoWeAre, whatWeOffer, ourMission} = abouts.items[0];
 
   return (
-    <div className="abt-main-m">
+    <div className="abt-main-m abt-back">
       <div className="image-container">
         <img src="abt-bg1.jpg" alt="Image" />
         <div className="overlay-text">
@@ -41,19 +41,19 @@ export default function AboutPage({ detail }) {
         
         
         
-      </div>
-      {/* image grid */}
-      <div className="abt-img-grid">
-          <div>
-            <img className="abt-img-r" src="/travellers2.jpg" alt="abt" />
+       </div>
+       {/* image grid */}
+       <div className="abt-img-grid">
+           <div>
+             <img className="abt-img-r" src="/travellers2.jpg" alt="abt" />
+           </div>
+            <div>
+             <img className="abt-img-r" src="/travellers1.jpg" alt="abt" />
           </div>
-          <div>
-            <img className="abt-img-r" src="/travellers1.jpg" alt="abt" />
-          </div>
-          <div>
-          <img className="abt-img-r" src="/about-grp-photo.jpg" alt="abt" />
+           <div>
+           <img className="abt-img-r" src="/about-grp-photo.jpg" alt="abt" />
+         </div>
         </div>
-        </div>
-    </div>
-  );
+     </div>
+  )
 }
